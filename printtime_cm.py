@@ -15,5 +15,11 @@ calculations took 3.40001 s
 """
 
 import time
+import contextlib
 
-...
+@contextlib.contextmanager
+def printtime_cm():
+    t = time.time()
+    yield
+    t2 = time.time()
+    print('execution took', t2 - t, 's')
